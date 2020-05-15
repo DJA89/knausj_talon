@@ -7,7 +7,7 @@ import platform
 
 app_cache = {}
 overrides = {
-    'grip': 'DataGrip', 
+    'grip': 'DataGrip',
     'term': 'iTerm2'
 }
 
@@ -18,7 +18,7 @@ mod.list('launch', desc='all launchable applications')
 @mod.capture
 def running_applications(m) -> str:
     "Returns a single application name"
-    
+
 @mod.capture
 def launch_applications(m) -> Capture:
     "Returns a single application name"
@@ -27,11 +27,11 @@ ctx = Context()
 @ctx.capture(rule='{self.running}')
 def running_applications(m):
     return m.running
-    
+
 @ctx.capture(rule='{self.launch}')
 def launch_applications(m):
     return m.launch
-    
+
 def split_camel(word):
     return re.findall(r'[0-9A-Z]*[a-z]+(?=[A-Z]|$)', word)
 
@@ -84,12 +84,12 @@ def update_lists():
                 new[word.lower()] = cur_app.name
         new[name.lower()] = cur_app.name
     for override in overrides:
-        new[override] = overrides[override] 
+        new[override] = overrides[override]
     ctx.lists['self.running'] = new
-    
+
     #print(str(new))
     new = {}
-    
+
     if app.platform == "mac":
         for base in '/Applications', '/Applications/Utilities':
             for name in os.listdir(base):
@@ -102,7 +102,7 @@ def update_lists():
                         if len(name) > 6 and len(word) < 3:
                             continue
                         new[word] = path
-    
+
         ctx.lists['self.launch'] = new
 
 def ui_event(event, arg):

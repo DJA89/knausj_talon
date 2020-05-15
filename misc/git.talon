@@ -6,11 +6,14 @@ app: Windows Command Processor
 -
 git add patch: "git add . -p\n"
 git add: "git add "
+git add dot: insert("git add .")
+git amend: "git commit --amend --no-edit"
 git bisect: "git bisect "
 git branch: "git branch "
 git checkout: "git checkout "
 git cherry pick: "git cherry-pick "
 git clone: "git clone "
+git co new: "git co -b "
 git clone clipboard:
   insert("git clone ")
   edit.paste()
@@ -22,6 +25,7 @@ git diff: "git diff "
 git fetch: "git fetch\n"
 git fetch <phrase>: "git fetch {phrase}"
 git in it: "git init\n"
+git master: "git co master"
 git log: "git log\n"
 git merge: "git merge "
 git merge <phrase>:"git merge {phrase}"
@@ -34,8 +38,9 @@ git pull <phrase>: "git pull {phrase} "
 git push: "git push\n"
 git push origin: "git push origin "
 git push <phrase>: "git push {phrase} "
+git new branch: "git checkout -b "
 git push tags: "git push --tags\n"
-git rebase: "git rebase\n"
+git rebase: "git rebase "
 git rebase continue: "git rebase --continue"
 git rebase skip: "git rebase --skip"
 git remove: "git rm "
@@ -47,4 +52,3 @@ git stash pop: "git stash pop\n"
 git stash: "git stash\n"
 git status: "git status\n"
 git tag: "git tag "
-

@@ -8,4 +8,3 @@ help context <user.help_contexts>$: user.help_selected_context(user.help_context
 help <user.help_context_index>$: user.help_select_index(help_context_index)
 help return$: user.help_return()
 help close$: user.help_hide()
-

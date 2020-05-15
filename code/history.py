@@ -5,7 +5,7 @@ is_showing = False
 history = []
 def parse_phrase(word_list):
     return ' '.join(word.split('\\')[0] for word in word_list)
-        
+
 def on_phrase(j):
     global hist_len
     global history
@@ -17,9 +17,9 @@ def on_phrase(j):
 
     if is_showing:
         gui.freeze()
-   
+
 #todo: dynamic rect?
-@imgui.open(y=0)
+@imgui.open(x=0, y=0)
 def gui(gui: imgui.GUI):
     global history
     gui.text("Command History")
@@ -32,7 +32,7 @@ speech_system.register('phrase', on_phrase)
 
 mod = Module()
 @mod.action_class
-class Actions:           
+class Actions:
     def history_enable():
         """Enables the history"""
         global is_showing

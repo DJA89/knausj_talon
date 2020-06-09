@@ -1,6 +1,6 @@
 from talon import Context, actions, ui, Module, settings
 import re
-import os 
+import os
 ctx = Context()
 mod = Module()
 setting_private_function_formatter   = mod.setting('code_private_function_formatter', str)
@@ -25,7 +25,8 @@ extension_lang_map = {
     "md": "markdown",
     "sh": "bash",
     "go": "go",
-    "js": "javascript"
+    "js": "javascript",
+    "rb"   : "ruby"
 }
 
 #flag indicates whether or not the title tracking is enabled
@@ -33,7 +34,7 @@ forced_language = False
 
 @ctx.action_class('code')
 class code_actions:
-    def language(): 
+    def language():
         result = ""
         if not forced_language:
             file_extension = actions.win.file_ext()
@@ -47,7 +48,7 @@ class code_actions:
 
             if result in extension_lang_map:
                 result = extension_lang_map[result]
-        
+
         #print("code.language: " + result)
         return result
 
@@ -99,7 +100,7 @@ class Actions:
 
     def code_operator_subtraction_assignment():
         """code_operator_subtraction_equals"""
-    
+
     def code_operator_addition():
         """code_operator_addition"""
 
@@ -129,22 +130,22 @@ class Actions:
 
     def code_operator_equal():
         """code_operator_equal"""
-    
+
     def code_operator_not_equal():
         """code_operator_not_equal"""
 
     def code_operator_greater_than():
         """code_operator_greater_than"""
 
-    def code_operator_greater_than_or_equal_to(): 
+    def code_operator_greater_than_or_equal_to():
         """code_operator_greater_than_or_equal_to"""
 
     def code_operator_less_than():
         """code_operator_less_than"""
 
-    def code_operator_less_than_or_equal_to(): 
+    def code_operator_less_than_or_equal_to():
         """code_operator_less_than_or_equal_to"""
-    
+
     def code_operator_and():
         """codee_operator_and"""
 
@@ -157,36 +158,36 @@ class Actions:
     def code_operator_bitwise_and_assignment():
         """code_operator_and"""
 
-    def code_operator_bitwise_or(): 
+    def code_operator_bitwise_or():
         """code_operator_bitwise_or"""
 
-    def code_operator_bitwise_or_assignment(): 
+    def code_operator_bitwise_or_assignment():
         """code_operator_or_assignment"""
-    
-    def code_operator_bitwise_exlcusive_or(): 
+
+    def code_operator_bitwise_exlcusive_or():
         """code_operator_bitwise_exlcusive_or"""
 
-    def code_operator_bitwise_exlcusive_or_assignment(): 
+    def code_operator_bitwise_exlcusive_or_assignment():
         """code_operator_bitwise_exlcusive_or_assignment"""
 
-    def code_operator_bitwise_left_shift(): 
+    def code_operator_bitwise_left_shift():
         """code_operator_bitwise_left_shift"""
 
-    def code_operator_bitwise_left_shift_assignment(): 
+    def code_operator_bitwise_left_shift_assignment():
         """code_operator_bitwise_left_shift_assigment"""
 
-    def code_operator_bitwise_right_shift(): 
+    def code_operator_bitwise_right_shift():
         """code_operator_bitwise_right_shift"""
 
-    def code_operator_bitwise_right_shift_assignment(): 
+    def code_operator_bitwise_right_shift_assignment():
         """code_operator_bitwise_right_shift_assignment"""
 
     def code_self():
         """Inserts the equivalent of "this" in C++ or self in python"""
-        
+
     def code_null():
         """inserts null equivalent"""
-        
+
     def code_is_null():
         """inserts check for == null"""
 
@@ -204,7 +205,7 @@ class Actions:
 
     def code_state_else():
         """Inserts else statement"""
-        
+
     def code_state_do():
         """Inserts do statement"""
 
@@ -219,7 +220,7 @@ class Actions:
 
     def code_state_for_each():
         """Inserts for each equivalent statement"""
-    
+
     def code_state_go_to():
         """inserts go-to statement"""
 
@@ -228,7 +229,7 @@ class Actions:
 
     def code_state_return():
         """Inserts return statement"""
-    
+
     def code_try_catch():
         """Inserts try/catch. If selection is true, does so around the selecion"""
 
@@ -239,13 +240,13 @@ class Actions:
 
     def code_private_static_function():
         """Inserts private static function"""
-        
+
     def code_protected_function():
         """Inserts protected function declaration w/o name"""
 
     def code_protected_static_function():
         """Inserts public function"""
-    
+
     def code_public_function():
         """Inserts public function"""
 
@@ -302,13 +303,9 @@ class Actions:
 
     def code_include_local():
         """code_include_local"""
-    
+
     def code_import():
         """import/using equivalent"""
 
     def code_from_import():
         """from import python equivalent"""
-    
-
-
-    

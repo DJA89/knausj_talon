@@ -18,6 +18,8 @@ action(app.tab_previous):
   key(ctrl-shift-tab)
 action(app.window_open):
   key(cmd-n)
+action(app.make_directory):
+  insert("mkdir ")
 kill all:
   key(ctrl-c)
 rerun search:
@@ -34,4 +36,3 @@ suspend:
 resume:
   insert("fg")
   key(enter)
-

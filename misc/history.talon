@@ -1,3 +1,6 @@
 show command history: user.history_enable()
 hide command history: user.history_disable()
 clear command history: user.history_clear()
+show command: user.history_enable()
+hide command: user.history_disable()
+clear command: user.history_clear()

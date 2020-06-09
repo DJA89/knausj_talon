@@ -49,9 +49,10 @@ ctx.lists['self.mouse_button'] = {
      #right click
      'righty':  '1',
      'rickle': '1',
-     
+
      #left click
-     'chiff': '0',
+     'pop': '0',
+     'sh': '0',
 }
 
 continuous_scoll_mode = ""
@@ -72,35 +73,35 @@ class Actions:
     def mouse_show_cursor():
         """Shows the cursor"""
         show_cursor_helper(True)
-        
+
     def mouse_hide_cursor():
         """Hides the cursor"""
-        show_cursor_helper(False) 
-  
+        show_cursor_helper(False)
+
     def mouse_wake():
         """Enable control mouse, zoom mouse, and disables cursor"""
         eye_zoom_mouse.zoom_mouse.enable()
-        eye_mouse.control_mouse.enable() 
+        eye_mouse.control_mouse.enable()
         if settings.get("user.mouse_wake_hides_cursor") >= 1:
             show_cursor_helper(False)
-        
+
     def mouse_calibrate():
         """Start calibration"""
         eye_mouse.calib_start()
-            
+
     def mouse_toggle_control_mouse():
         """Toggles control mouse"""
         eye_mouse.control_mouse.toggle()
 
     def mouse_toggle_zoom_mouse():
         """Toggles zoom mouse"""
-        eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)  
-       
+        eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)
+
     def mouse_cancel_zoom_mouse():
         """Cancel zoom mouse if pending"""
         if eye_zoom_mouse.zoom_mouse.enabled and eye_zoom_mouse.zoom_mouse.state != eye_zoom_mouse.STATE_IDLE:
             eye_zoom_mouse.zoom_mouse.cancel()
-    
+
     def mouse_drag():
         """(TEMPORARY) Press and hold/release button 0 depending on state for dragging"""
         global dragging
@@ -110,51 +111,51 @@ class Actions:
         else:
             dragging = False
             ctrl.mouse_click(up = True)
-    
+
     def mouse_sleep():
         """Disables control mouse, zoom mouse, and re-enables cursor"""
-        global dragging        
+        global dragging
         eye_zoom_mouse.zoom_mouse.disable()
-        eye_mouse.control_mouse.disable() 
+        eye_mouse.control_mouse.disable()
         show_cursor_helper(True)
         stop_scroll()
         if dragging:
             mouse_drag()
-        
+
     def mouse_scroll_down():
         """Scrolls down"""
         mouse_scroll(120)()
-        
+
     def mouse_scroll_down_continuous():
         """Scrolls down continuously"""
         global continuous_scoll_mode
         continuous_scoll_mode = "scroll down continuous"
         mouse_scroll(80)()
-        
+
         if scroll_job is None:
             start_scroll()
 
         gui_wheel.show()
-        
+
     def mouse_scroll_up():
         """Scrolls up"""
         mouse_scroll(-120)()
-        
+
     def mouse_scroll_up_continuous():
         """Scrolls up continuously"""
         global continuous_scoll_mode
         continuous_scoll_mode = "scroll up continuous"
         mouse_scroll(-80)()
-        
+
         if scroll_job is None:
-            start_scroll() 
+            start_scroll()
         if settings.get("user.mouse_hide_mouse_gui") == 0:
             gui_wheel.show()
 
     def mouse_scroll_stop():
         """Stops scrolling"""
         stop_scroll()
-        
+
     def mouse_gaze_scroll():
         """Starts gaze scroll"""
         global continuous_scoll_mode
@@ -162,7 +163,7 @@ class Actions:
         start_cursor_scrolling()
         if settings.get("user.mouse_hide_mouse_gui") == 0:
             gui_wheel.show()
-        
+
 def show_cursor_helper(show):
     """Show/hide the cursor"""
     if app.platform == "windows":
@@ -172,16 +173,16 @@ def show_cursor_helper(show):
         try:
             Registrykey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Control Panel\Cursors", 0, winreg.KEY_WRITE)
 
-            for value_name, value in default_cursor.items():   
-                if show: 
+            for value_name, value in default_cursor.items():
+                if show:
                     winreg.SetValueEx(Registrykey, value_name, 0, winreg.REG_EXPAND_SZ, value)
                 else:
                     winreg.SetValueEx(Registrykey, value_name, 0, winreg.REG_EXPAND_SZ, hidden_cursor)
-                        
+
             winreg.CloseKey(Registrykey)
 
             ctypes.windll.user32.SystemParametersInfoA(win32con.SPI_SETCURSORS, 0, None, 0)
-            
+
         except WindowsError:
             print("Unable to show_cursor({})".format(str(show)))
     else:
@@ -196,7 +197,7 @@ def on_pop(active):
             ctrl.mouse_click(button=0, hold=16000)
 
 noise.register('pop', on_pop)
-    
+
 def mouse_scroll(amount):
     def scroll():
         global scroll_amount
@@ -217,7 +218,7 @@ def scroll_continuous_helper():
 def start_scroll():
     global scroll_job
     scroll_job = cron.interval("60ms", scroll_continuous_helper)
-    
+
 def gaze_scroll():
     #print("gaze_scroll")
     if eye_zoom_mouse.zoom_mouse.state == eye_zoom_mouse.STATE_IDLE:
@@ -231,27 +232,27 @@ def gaze_scroll():
         if window is None:
             #print("no window found!")
             return
-            
+
         midpoint = window.y + window.height / 2
         amount = int(((y - midpoint) / (window.height / 10)) ** 3)
         actions.mouse_scroll(by_lines=False, y=amount)
-    
+
     #print(f"gaze_scroll: {midpoint} {window.height} {amount}")
-    
+
 def stop_scroll():
     global scroll_amount, scroll_job, gaze_job
     scroll_amount = 0
     if scroll_job:
         cron.cancel(scroll_job)
-        
+
     if gaze_job:
         cron.cancel(gaze_job)
-        
+
     scroll_job = None
     gaze_job = None
     gui_wheel.hide()
 
-    
+
 def start_cursor_scrolling():
     global scroll_job, gaze_job
     stop_scroll()

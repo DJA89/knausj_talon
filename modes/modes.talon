@@ -1,11 +1,11 @@
-#defines the various mode commands 
+#defines the various mode commands
 mode: all
 -
-welcome back: 
+welcome back:
 	user.mouse_wake()
 	user.history_enable()
 	speech.enable()
-sleep all: 
+sleep all:
 	user.switcher_hide_running()
 	user.history_disable()
 	user.homophones_hide()
@@ -15,6 +15,8 @@ sleep all:
 	user.engine_sleep()
 talon sleep: speech.disable()
 talon wake: speech.enable()
+sleep now: speech.disable()
+wake now: speech.enable()
 dragon mode: speech.disable()
 talon mode: speech.enable()
 ^dictation mode$:

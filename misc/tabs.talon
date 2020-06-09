@@ -1,4 +1,5 @@
 app: Google Chrome
+app: Atom
 app: chrome.exe
 app: Firefox
 app: firefox.exe
@@ -12,7 +13,7 @@ app: /terminal/
 app: /jetbrains/
 -
 (open | new) tab: app.tab_open()
-last tab: app.tab_previous()
-next tab: app.tab_next()
-close tab: app.tab_close()
-reopen tab: app.tab_reopen()
+back tarpy: app.tab_previous()
+next tarpy: app.tab_next()
+close tarpy: app.tab_close()
+reopen tarpy: app.tab_reopen()

@@ -4,41 +4,41 @@ find it:
 next one:
 	edit.find_next()
 
-go word left: 
+go word left:
 	edit.word_left()
-	
-go word right: 
+
+go word right:
 	edit.word_right()
 
-go left: 
+go left:
 	edit.left()
 
-go right: 
+go right:
 	edit.right()
 
-go up: 
+go up:
 	edit.up()
 
-go down: 
+go down:
 	edit.down()
 
-go line start: 
+go line start:
 	edit.line_start()
-	
-go line end: 
+
+go line end:
 	edit.line_end()
 
-go way left: 
+go way left:
 	edit.line_start()
 	edit.line_start()
-	
-go way right: 
+
+go way right:
 	edit.line_end()
 
-go way down: 
+go way down:
 	edit.file_end()
-	
-go way up: 
+
+go way up:
 	edit.file_start()
 
 go page down:
@@ -48,38 +48,38 @@ go page up:
 	edit.page_up()
 
 # selecting
-select line: 
+select line:
 	edit.line_start()
 	edit.extend_line_end()
 
-select left: 
+select left:
 	edit.extend_left()
-	
-select right: 
+
+select right:
 	edit.extend_right()
 
-select up: 
+select up:
 	edit.extend_line_up()
-	
-select down: 
+
+select down:
 	edit.extend_line_down()
 
 select word left:
 	edit.extend_word_left()
-	
-select word right: 
+
+select word right:
 	edit.extend_word_right()
 
 select way left:
 	edit.extend_line_start()
-	
-select way right: 
+
+select way right:
 	edit.extend_line_end()
-	
-select way up: 
+
+select way up:
 	edit.extend_file_start()
-	
-select way down: 
+
+select way down:
 	edit.extend_file_end()
 
 # editing
@@ -90,45 +90,45 @@ indent [more]:
 	edit.indent_less()
 
 # deleting
-clear line: 
+clear line:
 	edit.delete_line()
-    
-clear left: 
+
+clear left:
 	edit.extend_line_start()
 	edit.delete()
-	
-clear right: 
+
+clear right:
 	edit.extend_line_end()
 	edit.delete()
-	
-clear up: 
+
+clear up:
 	edit.extend_line_up()
 	edit.delete()
 
-clear down: 
+clear down:
 	edit.extend_line_down()
 	edit.delete()
 
-clear word left: 
+clear word left:
 	edit.extend_word_left()
 	edit.delete()
-	
-clear word right: 
+
+clear word right:
 	edit.extend_word_right()
 	edit.delete()
 
-clear way left: 
+clear way left:
 	edit.extend_line_start()
 	edit.delete()
 
-clear way right: 
+clear way right:
 	edit.extend_line_end()
 	edit.delete()
 
-clear way up: 
+clear way up:
 	edit.extend_file_start()
 	edit.delete()
-	
-clear way down: 
+
+clear way down:
 	edit.extend_file_end()
 	edit.delete()

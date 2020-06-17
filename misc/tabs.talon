@@ -15,7 +15,7 @@ app: /terminal/
 app: /jetbrains/
 -
 (open | new) tab: app.tab_open()
-back tarpy: app.tab_previous()
-next tarpy: app.tab_next()
+left tarpy: app.tab_previous()
+right tarpy: app.tab_next()
 close tarpy: app.tab_close()
 reopen tarpy: app.tab_reopen()

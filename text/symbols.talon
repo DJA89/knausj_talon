@@ -12,7 +12,7 @@ colon: ":"
 (angle | left angle | less than): "<"
 (rangle | are angle | right angle | greater than): ">"
 (star | asterisk): "*"
-(pound | hash [sign] | octo | thorpe | number sign): "#"
+(pound | hash [sign] | number sign): "#"
 percent [sign]: "%"
 caret: "^"
 at sign: "@"
@@ -27,6 +27,7 @@ ellipses: "..."
 plus: "+"
 arrow: "->"
 dub arrow: "=>"
+rocket: "=>"
 op dub: " => "
 (op | pad) colon: " : "
 indirect: "&"
@@ -68,6 +69,6 @@ op or: " || "
 empty dubstring:
     '""'
     key(left)
-empty string: 
+empty string:
     "''"
     key(left)

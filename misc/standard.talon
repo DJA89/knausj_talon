@@ -12,6 +12,10 @@ run vim: "vim "
 run make: "make\n"
 run make (durr | dear): "mkdir "
 (jay son | jason ): "json"
+github: "github"
+yarn init: "yarn init"
+yarn add: "yarn add "
+yarn run: "yarn run "
 (http | htp): "http"
 tls: "tls"
 M D five: "md5"
@@ -77,4 +81,6 @@ wipe: key(backspace)
 	insert("  ")
 	key(left)
 funny: "ha ha"
+my email: "drod89@gmail.com"
 #menu: key(alt)
+minimize window: key(cmd-m)

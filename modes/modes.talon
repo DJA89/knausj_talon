@@ -27,3 +27,7 @@ talon mode: speech.enable()
     mode.disable("sleep")
     mode.disable("dictation")
     mode.enable("command")
+^inglés$:
+    mode.disable("sleep")
+    mode.disable("dictation")
+    mode.enable("command")

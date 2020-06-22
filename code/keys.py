@@ -6,7 +6,7 @@ import sys
 default_alphabet = 'air bat cap drum each fine gust harp fit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip'.split(' ')
 letters_string = 'abcdefghijklmnopqrstuvwxyz'
 
-default_digits = 'zero one two three four five six seven eight nine'.split(' ')
+default_digits = ['numb zero', 'numb one', 'numb two', 'numb three', 'numb four', 'numb five', 'numb six', 'numb seven', 'numb eight', 'numb nine']
 numbers = [str(i) for i in range(10)]
 default_f_digits = 'one two three four five six seven eight nine ten eleven twelve'.split(' ')
 
@@ -78,7 +78,8 @@ ctx.lists['self.symbol'] = {
     'comma': ',', ',': ',',
     'dot': '.', 'period': '.',
     'semi': ';', 'semicolon': ';',
-    'quote': "'",
+    'simple quote': "'",
+    'apostrophe': "'",
     'L square': '[', 'left square': '[', 'square': '[',
     'R square': ']', 'right square': ']',
     'forward slash': '/', 'slash': '/',
@@ -104,7 +105,7 @@ ctx.lists['self.symbol'] = {
     'caret': '^',
     'at sign': '@',
     'and sign': '&', 'ampersand': '&', 'amper': '&',
-    'pipe': '|',
+    'sym pipe': '|',
     'dubquote': '"', 'double quote': '"',
 }
 
@@ -117,7 +118,7 @@ ctx.lists['self.arrow'] = {
 }
 
 simple_keys = [
-    'tab', 'escape', 'enter', 'space',
+    'escape', 'enter', 'space',
     'home', 'pageup', 'pagedown', 'end',
     'insert',
 ]

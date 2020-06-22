@@ -8,14 +8,14 @@ from talon import Context, Module, actions, app, ui
 ordinal_words = {}
 ordinal_ones = [
     "first",
-    "second",
-    "third",
-    "fourth",
-    "fifth",
-    "sixth",
-    "seventh",
-    "eighth",
-    "ninth",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
 ]
 ordinal_teens = [
     "tenth",

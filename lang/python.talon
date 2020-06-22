@@ -62,7 +62,7 @@ action(user.code_state_else_if):
 action(user.code_state_else):
 	insert("else:")
 	key(enter)
-action(user.print):
+action(user.code_print):
 		insert("print()")
 		edit.left()
 action(user.code_state_switch):

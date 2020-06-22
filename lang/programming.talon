@@ -2,7 +2,7 @@ tag: user.code_generic
 -
 #todo should we have a keyword list? type list capture? stick with "word"?
 #state in: insert(" in ")
-is not none: user.code_is_not_null() 
+is not none: user.code_is_not_null()
 is none: user.code_is_null()
 #todo: types?
 #word (dickt | dictionary): user.code_type_dictionary()
@@ -12,7 +12,7 @@ state else: user.code_state_else()
 state self: user.code_self()
 #todo: this is valid for many languages,
 # but probably not all
-self dot: 
+self dot:
     user.code_self()
     insert(".")
 state while: user.code_state_while()
@@ -31,6 +31,7 @@ state include system: user.code_include_system()
 state include local: user.code_include_local()
 state type deaf: user.code_type_definition()
 state type deaf struct: user.code_typedef_struct()
+print: user.code_print()
 state (no | nil): user.code_null()
 ^funky <user.text>$:
     #todo: once .talon action definitions can take parameters, combine these functions
@@ -50,7 +51,7 @@ state (no | nil): user.code_null()
 ^pub funky <user.text>$:
     #todo: once .talon action definitions can take parameters, combine these functions
     user.code_public_function()
-    user.code_public_function_formatter(user.text)	
+    user.code_public_function_formatter(user.text)
     sleep(50ms)
     insert("()")
 ^static funky <user.text>$:

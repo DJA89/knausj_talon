@@ -80,5 +80,6 @@ wipe: key(backspace)
 	key(left)
 funny: "ha ha"
 my email: "drod89@gmail.com"
+my work email: "drodriguez@vairix.com"
 #menu: key(alt)
 minimize window: key(cmd-m)

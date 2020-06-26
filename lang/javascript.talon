@@ -1,5 +1,5 @@
 mode: user.javascript
-mode: command 
+mode: command
 and code.language: javascript
 -
 tag(): user.code_operators
@@ -23,7 +23,13 @@ action(user.code_type_dictionary):
   key(left)
 
 action(user.code_state_if):
-  insert("if ()")
+  insert("if () {\n")
+  key(up)
+  key(right)
+  key(right)
+
+action(user.code_print):
+  insert("console.log()")
   key(left)
 
 action(user.code_state_else_if):
@@ -32,7 +38,7 @@ action(user.code_state_else_if):
 
 action(user.code_state_else):
   insert(" else {}")
-  key(left enter) 
+  key(left enter)
 
 action(user.code_self): "this"
 
@@ -55,7 +61,14 @@ action(user.code_state_case): "case :"
 
 action(user.code_state_go_to): ""
 
-action(user.code_import): "import "
+action(user.code_import):
+  insert("import  from ")
+  key(left)
+  key(left)
+  key(left)
+  key(left)
+  key(left)
+  key(left)
 
 action(user.code_from_import):
   insert(" from  \"\"")
@@ -87,7 +100,7 @@ action(user.code_operator_indirection): ""
 action(user.code_operator_address_of): ""
 action(user.code_operator_structure_deference): ""
 action(user.code_operator_lambda): " => "
-action(user.code_operator_subscript): 
+action(user.code_operator_subscript):
   insert("[]")
   key(left)
 action(user.code_operator_assignment): " = "
@@ -113,7 +126,7 @@ action(user.code_operator_less_than_or_equal_to): " <= "
 action(user.code_operator_and): " && "
 action(user.code_operator_or): " || "
 action(user.code_operator_bitwise_and): " & "
-action(user.code_operator_bitwise_and_assignment): " &= " 
+action(user.code_operator_bitwise_and_assignment): " &= "
 action(user.code_operator_bitwise_or): " | "
 action(user.code_operator_bitwise_or_assignment): " |= "
 action(user.code_operator_bitwise_exlcusive_or): " ^ "
@@ -133,14 +146,37 @@ state let: "let "
 
 state var: "var "
 
+state require:
+  insert("require('');")
+  key(left)
+  key(left)
+  key(left)
+
+state true: "true"
+
+state false: "false"
+
+state json element:
+  insert('"": "",')
+  key(left)
+  key(left)
+  key(left)
+  key(left)
+  key(left)
+  key(left)
+
 state async: "async "
 
 state await: "await "
-  
+
 state map:
   insert(".map()")
   key(left)
-  
+
+export default:
+  insert("export default ;")
+  key(left)
+
 state filter:
   insert(".filter()")
   key(left)

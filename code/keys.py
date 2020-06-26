@@ -6,7 +6,7 @@ import sys
 default_alphabet = 'air bat cap drum each fine gust harp fit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip'.split(' ')
 letters_string = 'abcdefghijklmnopqrstuvwxyz'
 
-default_digits = ['numb zero', 'numb one', 'numb two', 'numb three', 'numb four', 'numb five', 'numb six', 'numb seven', 'numb eight', 'numb nine']
+default_digits = ['number zero', 'number one', 'number two', 'number three', 'number four', 'number five', 'number six', 'number seven', 'number eight', 'number nine']
 numbers = [str(i) for i in range(10)]
 default_f_digits = 'one two three four five six seven eight nine ten eleven twelve'.split(' ')
 

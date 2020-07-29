@@ -52,7 +52,7 @@ ctx.lists['self.mouse_button'] = {
 
      #left click
      'chiff': '0',
-     'pop': '0',
+     # 'pop': '0',
 }
 
 continuous_scoll_mode = ""
@@ -192,9 +192,9 @@ def on_pop(active):
     if (gaze_job or scroll_job):
         if settings.get("user.mouse_enable_pop_stops_scroll") >= 1:
             stop_scroll()
-    else:
-        if settings.get("user.mouse_enable_pop_click") >= 1:
-            ctrl.mouse_click(button=0, hold=16000)
+        elif not eye_zoom_mouse.zoom_mouse.enabled and eye_mouse.mouse.attached_tracker is not None:
+            if settings.get("user.mouse_enable_pop_click") >= 1:
+                ctrl.mouse_click(button=0, hold=16000)
 
 noise.register('pop', on_pop)
 

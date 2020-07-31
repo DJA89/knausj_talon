@@ -12,7 +12,7 @@ settings():
     user.code_public_function_formatter = "CAMEL_CASE"
     user.code_private_variable_formatter = "CAMEL_CASE"
     user.code_protected_variable_formatter = "CAMEL_CASE"
-    user.code_public_variable_formatter = "CAMEL_CASE"
+    user.ode_public_variable_formatter = "CAMEL_CASE"
 
 action(user.code_is_not_null): " !== null"
 
@@ -146,6 +146,11 @@ state let: "let "
 
 state var: "var "
 
+state dispatch:
+  insert("dispatch();")
+  key(left)
+  key(left)
+
 state require:
   insert("require('');")
   key(left)
@@ -186,3 +191,10 @@ state reduce:
   key(left)
 
 state spread: "..."
+
+try catch:
+  insert("try {\n")
+  key(down)
+  insert(" catch () {\n")
+  key(up)
+  key(up)

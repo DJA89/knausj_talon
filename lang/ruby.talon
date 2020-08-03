@@ -6,6 +6,7 @@ state def:
   insert("def \nend")
   sleep(500ms)
   edit.up()
+  edit.right()
 state else if: "elsif "
 state if:
   insert("if \nend")
@@ -63,3 +64,5 @@ dock string:
     edit.left()
     edit.left()
 pie test: "pytest"
+state render H T M L: "render html: "
+state render (jay son | jason ): "render json: "

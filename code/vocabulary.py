@@ -7,7 +7,7 @@ simple_vocabulary = [
     "Citrix",
     "VPN",
     "DNS",
-    "minecraft",
+    "minecraft"
 ]
 
 mapping_vocabulary = {

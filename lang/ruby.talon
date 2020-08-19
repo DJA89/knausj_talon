@@ -1,5 +1,6 @@
 code.language: ruby
 -
+tag(): user.code_operators
 logical and: " && "
 logical or: " || "
 state def:
@@ -12,6 +13,8 @@ state if:
   insert("if \nend")
   sleep(500ms)
   edit.up()
+state true: "true"
+state false: "false"
 state else: "else:"
 state self: "self"
 state while:
@@ -58,11 +61,38 @@ for in:
 	key(space)
 	edit.left()
 dock string:
-    insert("\"\"\"")
-    insert("\"\"\"")
-    edit.left()
-    edit.left()
-    edit.left()
+  insert("\"\"\"")
+  insert("\"\"\"")
+  edit.left()
+  edit.left()
+  edit.left()
 pie test: "pytest"
 state render H T M L: "render html: "
 state render (jay son | jason ): "render json: "
+action(user.code_operator_assignment): " = "
+
+test before each:
+  insert("before(:each) do\n")
+test it:
+  insert("it '' do\n")
+  edit.up()
+  edit.right()
+  edit.right()
+test describe:
+  insert("describe '' do\n")
+  edit.up()
+  edit.right()
+  edit.right()
+  edit.right()
+  edit.right()
+  edit.right()
+  edit.right()
+  edit.right()
+  edit.right()
+test expect:
+  insert("expect().to ")
+  edit.left()
+  edit.left()
+  edit.left()
+  edit.left()
+  edit.left()

@@ -26,7 +26,9 @@ extension_lang_map = {
     "sh": "bash",
     "go": "go",
     "js": "javascript",
-    "rb"   : "ruby"
+    "rb"   : "ruby",
+    "html"   : "html",
+    "erb"   : "html"
 }
 
 #flag indicates whether or not the title tracking is enabled

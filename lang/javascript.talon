@@ -29,7 +29,8 @@ action(user.code_state_if):
   key(right)
 
 action(user.code_print):
-  insert("console.log()")
+  insert("console.log();")
+  key(left)
   key(left)
 
 action(user.code_state_else_if):

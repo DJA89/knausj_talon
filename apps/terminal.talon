@@ -29,3 +29,9 @@ rails server:
 
 rails generate:
   insert("rails generate ")
+
+rails console:
+  insert("rails console\n")
+
+rake routes:
+  insert("rake routes\n")

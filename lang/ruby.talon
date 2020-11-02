@@ -4,6 +4,7 @@ tag(): user.code_operators
 tag(): user.code_comment
 tag(): user.code_generic
 
+debugger: "debugger"
 logical and: " && "
 logical or: " || "
 state def:

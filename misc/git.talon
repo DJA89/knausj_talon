@@ -23,6 +23,7 @@ git clone clipboard:
   edit.paste()
   key(enter)
 git commit: "git commit\n"
+git clean: "git clean -"
 git diff (colour|color) words: "git diff --color-words "
 git diff: "git diff "
 git diff cached: "git diff --cached\n"

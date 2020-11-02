@@ -27,6 +27,7 @@ extension_lang_map = {
     "go": "go",
     "js": "javascript",
     "rb": "ruby",
+    "rake": "ruby",
     "html": "html",
     "erb": "html"
 }

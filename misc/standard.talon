@@ -1,3 +1,4 @@
+emoji: key(ctrl-cmd-space)
 slap:
 	edit.line_end()
 	key(enter)

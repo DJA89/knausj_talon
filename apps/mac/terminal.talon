@@ -36,4 +36,17 @@ suspend:
 resume:
   insert("fg")
   key(enter)
-
+rails server:
+  insert("rails s")
+  key(enter)
+rake routes:
+  insert("rake routes")
+  key(enter)
+rails console:
+  insert("rails c")
+  key(enter)
+rake routes:
+  insert("rake routes")
+  key(enter)
+r spec:
+  insert("rspec ")

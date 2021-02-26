@@ -34,10 +34,10 @@ action(user.code_state_else):
   insert(" else {}")
   key(left enter)
 
-action(user.code_block): 
-  insert("{}") 
+action(user.code_block):
+  insert("{}")
   key(left enter)
-  
+
 action(user.code_self): "this"
 
 action(user.code_state_while):
@@ -151,6 +151,14 @@ state reduce:
   key(left)
 
 state spread: "..."
+
+try catch:
+  insert("try {\n")
+  key(down)
+  key(right)
+  insert("catch {\n")
+  key(up)
+  key(up)
 
 ^funky <user.text>$: user.code_private_function(text)
 ^pro funky <user.text>$: user.code_protected_function(text)
